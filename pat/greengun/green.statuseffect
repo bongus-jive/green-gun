@@ -1,0 +1,6 @@
+{
+  "name" : "pat_greengun",
+  "effectConfig" : {"color" : "0f0"},
+  "scripts" : ["green.lua"],
+	"scriptDelta" : 0
+}

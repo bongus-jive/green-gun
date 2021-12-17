@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "greendye", "count" : 40001 }
+  ],
+  "output" : { "item" : "pat_greengun", "count" : 1 },
+  "groups" : [ "plain", "all" ]
+}

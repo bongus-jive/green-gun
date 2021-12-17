@@ -1,0 +1,104 @@
+{
+	"itemName" : "pat_greengun",
+	"shortdescription" : "^green;green gun^reset;",
+	"description" : "makes things \"^green;green^reset;\"",
+	"tooltipKind" : "base",
+	"rarity" : "Uncommon",
+	"category" : "pistol",
+	"itemTags" : ["weapon","ranged","pistol"],
+	"twoHanded" : false,
+	"maxStack" : 1,
+	"level" : 10,
+	"inventoryIcon" : "gun.png?setcolor=0f0?multiply=fffffffe",
+	
+	"animation" : "/items/active/weapons/ranged/gun.animation",
+	"animationParts" : {
+		"butt" : "", "barrel" : "",
+		"middle" : "gun.png?setcolor=0f0",
+		"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash.png"
+	},
+	"animationCustom" : {
+		"animatedParts" : {
+			"parts" : {
+				"middle" : {
+					"properties" : {
+						"fullbright" : true
+					}
+				},
+				"muzzleFlash" : {
+					"partStates" : {
+						"firing" : {
+							"fire" : {
+								"properties" : {
+									"offset" : [0.75, -0.25],
+									"image" : "<partImage>:<variant>.<frame>?setcolor=0f0"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"sounds" : {
+			"equip" : ["/sfx/interface/item_equip.ogg"],
+			"fire" : ["/sfx/gun/revolver2.ogg"]
+		},
+		"lights" : {
+			"muzzleFlash" : {
+				"color" : [0, 100, 0]
+			}
+		}
+	},
+	
+	"baseOffset" : [0.375, 0.1875],
+	"muzzleOffset" : [1.1875, 0.5],
+	"elementalType" : "physical",
+	
+	"scripts" : ["/items/active/weapons/ranged/gun.lua"],
+	
+	"primaryAbility" : {
+		"scripts" : ["/pat/greengun/gun.lua"],
+		"class" : "GreenGun",
+		
+		"fireTime" : 0.5,
+		"baseDps" : 0,
+		"inaccuracy" : 0,
+		"energyUsage" : 0,
+		
+		"projectileType" : "pat_greengunbullet",
+		"projectileCount" : 1,
+		"projectileParameters" : {},
+		
+		"stances" : {
+			"equip" : {
+				"hold" : 0.05,
+				"duration" : 0.2,
+				"armRotation": -65,
+				"weaponRotation" : -160,
+				"twoHanded" : false,
+				"allowRotate" : true,
+				"allowFlip" : true,
+				"playSounds" : ["equip"]
+			},
+			"idle" : {
+				"armRotation" : 0,
+				"weaponRotation" : 0,
+				"twoHanded" : false,
+				"allowRotate" : true,
+				"allowFlip" : true
+			},
+			"cooldown" : {
+				"hold" : 0.15,
+				"duration" : 0.35,
+				"armRotation" : 20,
+				"weaponRotation" : 12,
+				"weaponOffset" : [-0.125, 0],
+				"twoHanded" : false,
+				"allowRotate" : true,
+				"allowFlip" : true
+			}
+		}
+	},
+	
+	"builder" : "/items/buildscripts/buildunrandweapon.lua"
+}

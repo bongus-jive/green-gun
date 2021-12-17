@@ -1,0 +1,22 @@
+{
+  "projectileName" : "pat_greengunbullet",
+  "image" : "bullet.png",
+  "physics" : "laser",
+	"damageKind" : "default",
+	"damageTeam" : {"type" : "indiscriminate"},
+	"statusEffects" : ["pat_greengun"],
+  "lightColor" : [0, 75, 0],
+  "pointLight" : true,
+  "fullbright" : true,
+  "flippable" : true,
+  "piercing" : true,
+  "power" : 0,
+  "speed" : 200,
+  "knockback" : 0,
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/bulletexplosion/bulletexplosion.config"
+    }
+  ]
+}
