@@ -20,8 +20,7 @@ function GreenGun:update(dt, fireMode, shiftHeld)
 	
   if self.fireMode == (self.activatingFireMode or self.abilitySlot)
 	and self.cooldownTimer == 0
-	and not self.weapon.currentAbility
-	and not world.lineTileCollision(mcontroller.position(), self:firePosition()) then
+	and not self.weapon.currentAbility then
 		self:setState(self.fire)
   end
 end
@@ -55,3 +54,9 @@ function GreenGun:cooldown(a, b)
 end
 
 function GreenGun:damagePerShot() return 0 end
+
+function GreenGun:firePosition(...)
+  local pos = GunFire.firePosition(self, ...)
+  local collision = world.lineCollision(mcontroller.position(), pos)
+  return collision or pos
+end
