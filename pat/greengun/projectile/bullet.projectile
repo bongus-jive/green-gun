@@ -1,22 +1,59 @@
 {
-  "projectileName" : "pat_greengunbullet",
-  "image" : "bullet.png",
-  "physics" : "laser",
-	"damageKind" : "default",
-	"damageTeam" : {"type" : "indiscriminate"},
-	"statusEffects" : ["pat_greengun"],
-  "lightColor" : [0, 75, 0],
-  "pointLight" : true,
-  "fullbright" : true,
-  "flippable" : true,
-  "piercing" : true,
-  "power" : 0,
-  "speed" : 200,
-  "knockback" : 0,
-  "actionOnReap" : [
+  "projectileName": "pat_greengunbullet",
+  "image": "bullet.png",
+  "physics": "laser",
+  "damageKind": "default",
+  "damageTeam": { "type": "indiscriminate" },
+  "statusEffects": [ "pat_greengun" ],
+  "lightColor": [ 0, 75, 0 ],
+  "pointLight": true,
+  "fullbright": true,
+  "flippable": true,
+  "piercing": true,
+  "power": 0,
+  "speed": 200,
+  "knockback": 0,
+  "actionOnReap": [
     {
-      "action" : "config",
-      "file" : "/projectiles/explosions/bulletexplosion/bulletexplosion.config"
+      "action": "loop",
+      "count": 3,
+      "body": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "ember",
+            "size": 1.0,
+            "color": [ 0, 255, 0 ],
+            "position": [ -0.5, 0 ],
+            "initialVelocity": [ 8.0, 0 ],
+            "finalVelocity": [ 0.0, -15.0 ],
+            "approach": [ 12, 32 ],
+            "layer": "front",
+            "timeToLive": 0.5,
+            "destructionTime": 0.5,
+            "destructionAction": "shrink",
+            "collidesForeground": false,
+            "fullbright": true,
+            "trail": true,
+            "variance": {
+              "initialVelocity": [ 12.0, 16.0 ],
+              "finalVelocity": [ 0.5, 5 ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/gun/impact_bullet.ogg" ]
+    },
+    {
+      "action": "explosion",
+      "foregroundRadius": 1,
+      "backgroundRadius": 0,
+      "explosiveDamageAmount": 0.5,
+      "delaySteps": 2
     }
   ]
 }
