@@ -9,6 +9,8 @@ end
 
 function GreenGun:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
+  
+  activeItem.setCursor("/pat/greengun/cursor/reticle.cursor")
 
   self.cooldownTimer = math.max(0, self.cooldownTimer - self.dt)
 
@@ -35,8 +37,8 @@ function GreenGun:cooldown(a, b)
 	local f = util.interpolateSigmoid
 	local stance1 = self.stances[a or "cooldown"]
 	local stance2 = self.stances[b or "idle"]
-	local pos1 = stance1.weaponOffset or {0,0}
-	local pos2 = stance2.weaponOffset or {0,0}
+	local pos1 = stance1.weaponOffset or {0, 0}
+	local pos2 = stance2.weaponOffset or {0, 0}
 	
   self.weapon:setStance(stance1)
   self.weapon:updateAim()
